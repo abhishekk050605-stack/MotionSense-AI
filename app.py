@@ -9,7 +9,7 @@ st.write("This application uses a trained CNN-LSTM neural network to classify ph
 
 @st.cache_resource
 def load_ai_model():
-    return load_model("final_har_model.h5")
+    return load_model("final_har_model.keras")
 
 model = load_ai_model()
 
