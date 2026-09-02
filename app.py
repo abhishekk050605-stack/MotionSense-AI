@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 import tensorflow as tf
 
 # --- THE NUCLEAR FIX: Patch TensorFlow itself in memory ---
@@ -36,4 +37,5 @@ if st.button("Simulate Smartphone Sensor Data", type="primary"):
     st.success(f"**Predicted Activity:** {activities[predicted_class]}")
     
     st.write("### AI Confidence Matrix")
-    st.bar_chart({"Confidence": prediction[0]}, x_labels=activities)
+    chart_data = pd.DataFrame(prediction[0], index=activities, columns=["Confidence"])
+    st.bar_chart(chart_data)
